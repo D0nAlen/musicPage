@@ -2,15 +2,25 @@
 @use "font";
 
 body {
-  color: greenyellow;
-  font-family: var.$font;
+  font-family: font;
+  font-weight: 400;
 }
 
 a {
-  transition: var.$tr;
-  color: var.$dark;
+  text-decoration: none;
 }
 
-a:hover {
-  color: var.$accent;
+.header {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 71px;
+  &__logo {
+    background-color: var.$accent;
+  }
+  &__link {
+    color: var.$light;
+    font-size: 20px;
+    background-color: var.$accent;
+  }
 }
