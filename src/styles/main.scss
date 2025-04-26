@@ -4,6 +4,7 @@
 body {
   font-family: font.$font-family-unbounded;
   font-weight: 400;
+  background-color: #1f2023;
 }
 
 a {
@@ -26,22 +27,23 @@ a {
     z-index: -1;
     background-color: var.$accent;
   }
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 24px;
-    background-image: url("../IMAGES/Header-bottom.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    bottom: -24px;
-  }
   &__logo {
     background-color: var.$accent;
     padding: 17px 45px 0 45px;
     border-radius: 10px 0 0 0;
     position: relative;
+    &::before {
+      content: "";
+      display: block;
+      width: 26px;
+      height: 24px;
+      background-image: url("../IMAGES/Header-bottom-left.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: 0;
+      bottom: -24px;
+    }
     &::after {
       content: "";
       display: block;
@@ -60,6 +62,18 @@ a {
     padding: 17px 45px 0 45px;
     border-radius: 0 10px 0 0;
     position: relative;
+    &::before {
+      content: "";
+      display: block;
+      width: 26px;
+      height: 24px;
+      background-image: url("../IMAGES/Header-bottom-right.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 0;
+      bottom: -24px;
+    }
     &::after {
       content: "";
       display: block;
@@ -71,4 +85,20 @@ a {
       left: -68px;
     }
   }
+}
+
+.container {
+  width: 100%;
+  max-width: 1830px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.banner {
+  display: flex;
+  background-image: url(../IMAGES/bg-banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50px;
 }
