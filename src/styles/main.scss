@@ -7,16 +7,22 @@ body {
   background-color: #1f2023;
 }
 
+* {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
 }
 
 .header {
   display: flex;
+  width: 100%;
   align-items: stretch;
   justify-content: space-between;
   height: 71px;
-  position: relative;
+  position: fixed;
+  top: 0;
   &::before {
     content: "";
     width: 100%;
@@ -93,6 +99,7 @@ a {
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+  box-sizing: border-box;
 }
 
 .banner {
@@ -101,4 +108,101 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50px;
+  color: var.$light;
+  padding: 100px 50px;
+  margin-top: 135px;
+  gap: 50px;
+
+  &__main {
+    flex-basis: 60%;
+  }
+  &__info {
+    flex-basis: calc(40% - 50px);
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    border: 1px solid var.$light;
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+    height: 151px;
+    position: relative;
+    margin-right: 80px;
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 151px;
+      background-image: url(../IMAGES/banner-info-decor.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: -80px;
+      top: 0;
+    }
+  }
+  &__decor {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 110%;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  &__btn {
+    display: block;
+    width: 100%;
+    background-color: var.$accent;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid var.$accent;
+    padding: 30px;
+    transition: var.$tr;
+    cursor: pointer;
+    @media (hover: hover) {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.banner-box {
+  border: 1px solid var.$light;
+  border-radius: 20px;
+  position: relative;
+  padding: 30px 332px 30px 30px;
+
+  &__title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &__img {
+    position: absolute;
+    &._electroguitar {
+      top: -68px;
+      right: -20px;
+    }
+  }
 }
