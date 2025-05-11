@@ -117,7 +117,10 @@ a {
     flex-basis: 60%;
   }
   &__info {
+    display: flex;
+    flex-direction: column;
     flex-basis: calc(40% - 50px);
+    gap: 19px;
   }
   &__item {
     display: flex;
@@ -126,9 +129,21 @@ a {
     border: 1px solid var.$light;
     border-right: none;
     border-radius: 20px 0 0 20px;
-    height: 151px;
+    // height: 151px;
     position: relative;
-    margin-right: 80px;
+    margin-right: 61px; //80px;
+    padding: 45px 30px 27px 30px;
+    gap: 15px;
+    & p {
+      font-weight: 250;
+      font-size: 24px;
+      line-height: 110%;
+    }
+    & span {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 110%;
+    }
     &::after {
       content: "";
       display: block;
@@ -141,11 +156,23 @@ a {
       right: -80px;
       top: 0;
     }
+    @media (hover: hover) {
+      &:hover {
+        background-color: var.$accent;
+      }
+      &:hover::after {
+        background-color: var.$accent;
+      }
+    }
   }
   &__decor {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -78px; //0px;
+
+    border: 1px solid var.$light;
+    border-radius: 10px;
+    padding: 7px;
   }
   &__title {
     font-size: 64px;
@@ -159,6 +186,7 @@ a {
     width: 100%;
     background-color: var.$accent;
     border-radius: 20px;
+    font-family: font.$font-family-unbounded;
     font-weight: 600;
     font-size: 20px;
     line-height: 110%;
