@@ -23,6 +23,7 @@ a {
   height: 71px;
   position: fixed;
   top: 0;
+  z-index: 999;
   &::before {
     content: "";
     width: 100%;
@@ -117,10 +118,10 @@ a {
     flex-basis: 60%;
   }
   &__info {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     flex-basis: calc(40% - 50px);
-    gap: 19px;
+    // gap: 19px;
   }
   &__item {
     display: flex;
@@ -129,22 +130,29 @@ a {
     border: 1px solid var.$light;
     border-right: none;
     border-radius: 20px 0 0 20px;
-    // height: 151px;
+    height: 151px;
     position: relative;
     margin-right: 61px; //80px;
-    padding: 45px 30px 27px 30px;
-    gap: 15px;
-    & p {
-      font-weight: 250;
-      font-size: 24px;
-      line-height: 110%;
+    // padding: 45px 30px 27px 30px;
+    padding: 45px 30px 30px;
+    box-sizing: border-box;
+    transition: var.$tr;
+    // gap: 15px;
+    & + & {
+      margin-top: 19px;
     }
-    & span {
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 110%;
+    &:hover {
+      background-color: var.$accent;
+      border-color: var.$accent;
+      &::after {
+        opacity: 1;
+      }
+      .banner__decor {
+        background-color: var.$accent;
+        border-color: var.$accent;
+      }
     }
-    &::after {
+    &::before {
       content: "";
       display: block;
       width: 80px;
@@ -156,23 +164,46 @@ a {
       right: -80px;
       top: 0;
     }
-    @media (hover: hover) {
-      &:hover {
-        background-color: var.$accent;
-      }
-      &:hover::after {
-        background-color: var.$accent;
-      }
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 151px;
+      background-image: url(../IMAGES/banner-info-decor-hover.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: -80px;
+      top: 0;
+      opacity: 0;
+      transition: var.$tr;
+    }
+  }
+  &__text {
+    font-weight: 250;
+    font-size: 24px;
+    line-height: 110%;
+    margin: 0;
+    span {
+      display: block;
+      font-weight: 700;
+      font-size: 32px;
+      margin-top: 20px;
     }
   }
   &__decor {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 0;
     right: -78px; //0px;
-
     border: 1px solid var.$light;
     border-radius: 10px;
-    padding: 7px;
+    box-sizing: border-box;
+    transition: var.$tr;
   }
   &__title {
     font-size: 64px;
