@@ -133,49 +133,43 @@ a {
     height: 151px;
     position: relative;
     margin-right: 61px; //80px;
+    z-index: 1;
     // padding: 45px 30px 27px 30px;
     padding: 45px 30px 30px;
     box-sizing: border-box;
     transition: var.$tr;
-    // gap: 15px;
-    & + & {
-      margin-top: 19px;
-    }
     &:hover {
-      background-color: var.$accent;
-      border-color: var.$accent;
-      &::after {
+      &::before {
+        width: 100%;
         opacity: 1;
+        transform: translateX(1) scale(0);
       }
       .banner__decor {
         background-color: var.$accent;
         border-color: var.$accent;
+        &::after {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
       }
+    }
+    & + & {
+      margin-top: 19px;
     }
     &::before {
       content: "";
       display: block;
-      width: 80px;
+      width: 0;
       height: 151px;
-      background-image: url(../IMAGES/banner-info-decor.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
+      background-color: var.$accent;
+      border: 1px solid var.$accent;
       position: absolute;
-      right: -80px;
-      top: 0;
-    }
-    &::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 151px;
-      background-image: url(../IMAGES/banner-info-decor-hover.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: absolute;
-      right: -80px;
-      top: 0;
+      top: -1px;
+      right: 0;
+      border-radius: 20px 0 0 20px;
+      z-index: -1;
       opacity: 0;
+      transform: translateX(50%) (0);
       transition: var.$tr;
     }
   }
@@ -204,6 +198,33 @@ a {
     border-radius: 10px;
     box-sizing: border-box;
     transition: var.$tr;
+    &::before {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 151px;
+      background-image: url(../IMAGES/banner-info-decor.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 0;
+      top: -1px;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 151px;
+      transform: translate(-50%, 0) scale(0);
+      background-image: url(../IMAGES/banner-info-decor-hover.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 0;
+      top: -1px;
+      opacity: 0;
+      transition: var.$tr;
+    }
   }
   &__title {
     font-size: 64px;
