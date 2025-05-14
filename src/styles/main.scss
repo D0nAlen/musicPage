@@ -5,6 +5,7 @@ body {
   font-family: font.$font-family-unbounded;
   font-weight: 400;
   background-color: #1f2023;
+  color: var.$light;
 }
 
 * {
@@ -13,6 +14,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+button {
+  color: var.$light;
 }
 
 .header {
@@ -115,7 +120,10 @@ a {
   gap: 50px;
 
   &__main {
+    display: flex;
+    flex-direction: column;
     flex-basis: 60%;
+    justify-content: space-between;
   }
   &__info {
     // display: flex;
@@ -142,14 +150,14 @@ a {
       &::before {
         width: 100%;
         opacity: 1;
-        transform: translateX(1) scale(0);
+        transform: scale(1);
       }
       .banner__decor {
         background-color: var.$accent;
         border-color: var.$accent;
         &::after {
           opacity: 1;
-          transform: translate(0, 0) scale(1);
+          transform: scale(1);
         }
       }
     }
@@ -169,7 +177,8 @@ a {
       border-radius: 20px 0 0 20px;
       z-index: -1;
       opacity: 0;
-      transform: translateX(50%) (0);
+      transform: scale(0);
+      transform-origin: bottom right;
       transition: var.$tr;
     }
   }
@@ -215,7 +224,8 @@ a {
       display: block;
       width: 80px;
       height: 151px;
-      transform: translate(-50%, 0) scale(0);
+      transform: scale(0);
+      transform-origin: bottom left;
       background-image: url(../IMAGES/banner-info-decor-hover.svg);
       background-repeat: no-repeat;
       background-size: contain;
@@ -284,5 +294,24 @@ a {
       top: -68px;
       right: -20px;
     }
+  }
+}
+
+.tag {
+  display: flex;
+  gap: 64px;
+  animation: move-left 20s infinite linear alternate;
+  overflow: hidden;
+  &:hover{
+    animation-play-state: paused;
+  }
+}
+
+@keyframes move-left {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
   }
 }
