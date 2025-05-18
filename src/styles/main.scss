@@ -24,6 +24,7 @@ a {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var.$grey;
+  // margin-bottom: 50px;
 }
 
 button {
@@ -347,6 +348,7 @@ button {
 .course {
   display: flex;
   gap: 70px;
+  margin-top: 150px;
   &__title {
     flex-basis: 395px;
   }
@@ -354,7 +356,7 @@ button {
     margin-top: 20px;
   }
   &__content {
-    flex-basis: calc(100% - 395px - 70px);  //(100%width -  width_Преподаватели-gap_Между этими блоками)
+    flex-basis: calc(100% - 395px - 70px); //(100%width -  width_Преподаватели-gap_Между этими блоками)
     width: calc(100% - 395px - 70px);
   }
 }
@@ -376,6 +378,8 @@ button {
     left: inherit;
     right: inherit;
     position: inherit;
+    box-sizing: border-box;
+    margin: 0;
     &::after {
       content: "";
       display: block;
@@ -383,6 +387,10 @@ button {
       height: 24px;
       background-repeat: no-repeat;
       background-size: contain;
+    }
+    &:hover {
+      background-color: var.$accent;
+      border: none;
     }
   }
   &__prev {
@@ -400,6 +408,11 @@ button {
 .slider-teacher {
   &__item {
     background-color: var.$dark;
+    border: 2px solid var.$accent;
+    border-radius: 50px;
+    padding: 23px 10.5px;
+    // width: 435px;
+    // height: 707px;
   }
   &__img {
     width: 100%;
