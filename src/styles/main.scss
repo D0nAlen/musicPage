@@ -6,11 +6,13 @@ body {
   font-weight: 400;
   background-color: #1f2023;
   color: var.$light;
+  line-height: 110%;
+  overflow-x: hidden;
 }
 
-* {
-  margin: 0;
-}
+// * {
+//   margin: 0;
+// }
 
 a {
   text-decoration: none;
@@ -24,7 +26,9 @@ a {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var.$grey;
-  // margin-bottom: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+
 }
 
 button {
@@ -380,6 +384,8 @@ button {
     position: inherit;
     box-sizing: border-box;
     margin: 0;
+    transition: var.$tr;
+    background-color: transparent;
     &::after {
       content: "";
       display: block;
@@ -390,7 +396,7 @@ button {
     }
     &:hover {
       background-color: var.$accent;
-      border: none;
+      border-color: var.$accent;
     }
   }
   &__prev {
@@ -407,14 +413,61 @@ button {
 
 .slider-teacher {
   &__item {
+    height: 707px;
     background-color: var.$dark;
-    border: 2px solid var.$accent;
+    border: 1px solid var.$dark;
     border-radius: 50px;
-    padding: 23px 10.5px;
-    // width: 435px;
-    // height: 707px;
+    position: relative;
+    overflow: hidden;
+    transition: var.$tr;
+    &:hover {
+      border-color: var.$accent;
+      .slider-teacher__name,
+      .slider-teacher__grid {
+        opacity: 1;
+      }
+    }
+  }
+  &__grid {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: var.$tr;
   }
   &__img {
     width: 100%;
+    height: 637px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+  }
+  &__name {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    color: var.$grey;
+    opacity: 0;
+    transition: var.$tr;
+    z-index: 1;
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 637px;
+      background: linear-gradient(42deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 59.08%);
+      background-repeat: no-repeat;
+      position: absolute;
+      left: -30px;
+      bottom: -30px;
+      z-index: -1;
+    }
   }
 }
