@@ -363,6 +363,9 @@ button {
     flex-basis: calc(100% - 395px - 70px); //(100%width -  width_Преподаватели-gap_Между этими блоками)
     width: calc(100% - 395px - 70px);
   }
+  &__schedule {
+    margin-top: 50px;
+  }
 }
 
 .course-control {
@@ -473,10 +476,12 @@ button {
 }
 
 .accordion {
-  display: flex;
-  flex-direction: column;
   &__btn {
-    border: 1px solid var(--white);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
     border-radius: 20px;
     padding: 20px 25px 20px 30px;
     margin-bottom: 24px;
@@ -490,54 +495,40 @@ button {
       display: block;
       width: 50px;
       height: 50px;
-      background-image: url(../IMAGES/ui/Plus.svg);
+      background-image: url(../IMAGES/ui/Minus.svg);
       background-repeat: no-repeat;
       background-size: contain;
     }
     &.active {
       &::after {
-        background-image: url(../IMAGES/ui/Minus.svg);
+        background-image: url(../IMAGES/ui/Plus.svg);
       }
     }
   }
   &__panel {
-    border: 1px solid var.$light;
-    border-radius: 20px;
-    padding: 30px 50px;
-
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background: var.$light;
+    border-radius: 20px;
     margin: 0;
   }
   &__list {
     list-style-type: none;
     padding-left: 0;
-    // border: 1px solid var(--white);
-    // border-radius: 20px;
-    // padding: 30px 50px;
-    // & + & {
-    //   margin-top: 30px;
-    // }
+    padding: 30px 50px;
   }
   &__item {
     display: flex;
     align-items: center;
     gap: 10px;
-
     font-weight: 300;
     font-size: 24px;
     line-height: 110%;
     color: var.$dark;
-
-    // border: 1px solid var.$light;
-    // border-radius: 20px;
-    // padding: 30px 50px;
-    // background: var.$light;
-    border-bottom: 1px solid var.$grey;
-    padding: 0 0 30px;
-    height: 41px;
+    & + & {
+      margin-top: 30px;
+    }
     &::before {
       content: "—";
     }
