@@ -10,9 +10,9 @@ body {
   overflow-x: hidden;
 }
 
-// * {
-//   margin: 0;
-// }
+* {
+  margin: 0;
+}
 
 a {
   text-decoration: none;
@@ -541,4 +541,90 @@ button {
   border-radius: var.$br-max;
   padding: 150px 45px;
   background: linear-gradient(180deg, #1f2023 0%, #7027e2 50%, #1f2023 100%);
+  // max-width: 1920px;
+  // margin: 0 auto;
+  width: min(1920px, 100%);
+  margin-inline: auto;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  &__item {
+    flex: 1;
+    border-radius: 50px;
+    padding: 30px 28px 30px 30px;
+    background: var.$light;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var.$dark;
+  }
+}
+
+.result {
+  margin: 150px 0;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+  &__item {
+    border-radius: var.$br-min;
+    padding: 30px;
+    background-color: var.$light;
+    &._subgrid {
+      grid-column: 2 / 5;
+      display: grid;
+      grid-template-columns: subgrid;
+    }
+  }
+  &__text {
+    color: var.$dark;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 110%;
+      background: var.$accent;
+      margin-bottom: 20px;
+      color: var.$light;
+      // width: min(55px, 100%);
+    }
+  }
+  &__btn {
+    grid-column: 2 / 5;
+    color: var.$light;
+    background-color: var.$accent;
+    border-radius: var.$br-min;
+    font-family: font.$font-family-unbounded;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid var.$accent;
+    padding: 54px;
+    transition: var.$tr;
+    cursor: pointer;
+    @media (hover: hover) {
+      &:hover {
+        background-color: var.$dark;
+      }
+    }
+  }
 }
