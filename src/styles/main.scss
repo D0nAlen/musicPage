@@ -33,6 +33,7 @@ a {
 button {
   color: var.$light;
   font-family: font.$font-family-unbounded;
+  cursor: pointer;
 }
 
 .header {
@@ -111,6 +112,21 @@ button {
       position: absolute;
       top: 0;
       left: -68px;
+    }
+  }
+}
+
+.logo {
+  &._max {
+    svg {
+      width: 400px;
+      height: 31px;
+    }
+  }
+  &._min {
+    svg {
+      width: 296px;
+      height: 22px;
     }
   }
 }
@@ -269,7 +285,6 @@ button {
     border: 1px solid var.$accent;
     padding: 30px;
     transition: var.$tr;
-    cursor: pointer;
     @media (hover: hover) {
       &:hover {
         background-color: transparent;
@@ -584,14 +599,20 @@ button {
       grid-column: 2 / 5;
       display: grid;
       grid-template-columns: subgrid;
+      grid-template-rows: 130px;
+      align-items: center;
     }
   }
   &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     color: var.$dark;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     span {
+      width: fit-content;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -601,13 +622,13 @@ button {
       font-size: 24px;
       line-height: 110%;
       background: var.$accent;
-      margin-bottom: 20px;
+      // margin-bottom: 20px;
       color: var.$light;
-      // width: min(55px, 100%);
     }
   }
   &__btn {
-    grid-column: 2 / 5;
+    align-items: stretch;
+    grid-column: 2 / 4;
     color: var.$light;
     background-color: var.$accent;
     border-radius: var.$br-min;
@@ -620,10 +641,98 @@ button {
     border: 1px solid var.$accent;
     padding: 54px;
     transition: var.$tr;
-    cursor: pointer;
     @media (hover: hover) {
       &:hover {
         background-color: var.$dark;
+      }
+    }
+  }
+}
+
+.areas {
+  margin-inline: 45px;
+  margin-block: 150px;
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    margin: 30px;
+    color: var.$light;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    border-radius: 0;
+    background-color: transparent;
+    border-bottom: 1px solid var.$accent;
+    position: relative;
+    transition: var.$tr;
+    &:not(:last-child) {
+      border-bottom: 1px solid var.$accent;
+    }
+
+    &:hover {
+      background-color: var.$accent;
+      border-radius: 10px;
+      &::after {
+        transform: rotate(45deg);
+      }
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 48px;
+      background-image: url(../IMAGES/ui/Arrow-rotate.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: var.$tr;
+    }
+    &::before {
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: 770px;
+      opacity: 0;
+      transform: scale(0);
+      transition: var.$tr;
+    }
+    &._acoustic {
+      &::before {
+        width: 568px;
+        height: 314px;
+        background-image: url(../IMAGES/areas/acoustic.png);
+        top: calc(50% - 157px);
+      }
+    }
+    &._drums {
+      &::before {
+        width: 474px;
+        height: 474px;
+        background-image: url(../IMAGES/areas/drums.png);
+        top: calc(50% - 237px);
+      }
+    }
+    &._violin {
+      &::before {
+        width: 568px;
+        height: 528px;
+        background-image: url(../IMAGES/areas/violin.png);
+        top: calc(50% - 264px);
+      }
+    }
+    &._bass-guitar {
+      &::before {
+        width: 586px;
+        height: 394px;
+        background-image: url(../IMAGES/areas/bass-guitar.png);
+        top: calc(50% - 197px);
       }
     }
   }
