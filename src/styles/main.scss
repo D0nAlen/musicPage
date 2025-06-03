@@ -739,6 +739,9 @@ button {
 }
 
 .social {
+  display: flex;
+  gap: 11px;
+  justify-content: right;
   &__link {
     display: block;
     width: 44px;
@@ -748,7 +751,7 @@ button {
     transition: var.$tr;
     &:hover {
       background-color: var.$accent;
-      &::after{
+      &::after {
         background-color: var.$light;
       }
     }
@@ -784,5 +787,38 @@ button {
         -webkit-mask-image: url(../IMAGES/social/tg.svg);
       }
     }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 30px 50px;
+  background-color: var.$dark;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  &__info {
+    &__container {
+      display: flex;
+      gap: 10px;
+    }
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var.$light;
+  }
+  &__link {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: var.$accent;
   }
 }
