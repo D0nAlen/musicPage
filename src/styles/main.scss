@@ -737,3 +737,52 @@ button {
     }
   }
 }
+
+.social {
+  &__link {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background-color: var.$light;
+    border-radius: 10px;
+    transition: var.$tr;
+    &:hover {
+      background-color: var.$accent;
+      &::after{
+        background-color: var.$light;
+      }
+    }
+    &::after {
+      content: "";
+      display: block;
+      background-color: var.$accent;
+      mask: center center / 100% no-repeat;
+      -webkit-mask: center center / 100% no-repeat;
+      transition: var.$tr;
+    }
+    &._wa {
+      &::after {
+        width: 28px;
+        height: 28px;
+        mask-image: url(../IMAGES/social/wa.svg);
+        -webkit-mask-image: url(../IMAGES/social/wa.svg);
+      }
+    }
+    &._vk {
+      &::after {
+        width: 31px;
+        height: 19px;
+        mask-image: url(../IMAGES/social/vk.svg);
+        -webkit-mask-image: url(../IMAGES/social/vk.svg);
+      }
+    }
+    &._tg {
+      &::after {
+        width: 25px;
+        height: 22px;
+        mask-image: url(../IMAGES/social/tg.svg);
+        -webkit-mask-image: url(../IMAGES/social/tg.svg);
+      }
+    }
+  }
+}
