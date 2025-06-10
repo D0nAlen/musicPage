@@ -57,9 +57,12 @@ button {
   }
   &__logo {
     background-color: var.$accent;
-    padding: 20px 45px 0 45px;
+    padding: 17px 45px 0 45px;
     border-radius: 10px 0 0 0;
     position: relative;
+    @media (max-width: var.$r_desk){
+      padding: 17px 20px 0 20px;
+    }
     &::before {
       content: "";
       display: block;
@@ -83,14 +86,14 @@ button {
       right: -68px;
     }
   }
-  &__link {
-    font-size: 20px;
+  &__info {
     background-color: var.$accent;
-    padding: 19px 45px 0 45px;
-    border-radius: 0 10px 0 0;
+    padding: 17px 45px 0 45px;
     position: relative;
-    text-decoration: underline 1px;
-    text-underline-offset: 10px;
+    border-radius: 0 10px 0 0;
+    @media (max-width: var.$r_desk){
+      padding: 17px 20px 0 20px;
+    }
     &::before {
       content: "";
       display: block;
@@ -114,6 +117,17 @@ button {
       left: -68px;
     }
   }
+  &__link {
+    font-size: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var.$light;
+    transition: var.$tr;
+    @media (hover: hover) {
+      &:hover {
+        border-bottom: 1px solid var.$accent;
+      }
+    }
+  }
 }
 
 .logo {
@@ -135,9 +149,13 @@ button {
   width: 100%;
   max-width: 1830px;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 45px;
+  padding-right: 45px;
   box-sizing: border-box;
+  @media (max-width: var.$r_desk){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .banner {
@@ -740,10 +758,13 @@ button {
 
 .social {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
   gap: 11px;
-  justify-content: right;
   &__link {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 44px;
     height: 44px;
     background-color: var.$light;
@@ -791,34 +812,37 @@ button {
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
-  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 10px 20px;
   padding: 30px 50px;
   background-color: var.$dark;
-  &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  &__info {
-    &__container {
-      display: flex;
-      gap: 10px;
-    }
-  }
+  margin-bottom: 30px;
+  border-radius: var.$br-min;
   &__text {
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     color: var.$light;
+    margin-top: 0;
+    margin-bottom: 0;
+    & + & {
+      margin-top: 6px;
+    }
   }
   &__link {
     font-weight: 700;
     font-size: 16px;
     line-height: 150%;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
     color: var.$accent;
+    box-shadow: 0 4px 0 -3px var.$accent;
+    transition: var.$tr;
+    &:hover {
+      box-shadow: 0 4px 0 -3px transparent;
+    }
+  }
+  &__copy {
+    text-align: right;
+    align-self: end;
   }
 }
